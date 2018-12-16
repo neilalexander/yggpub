@@ -79,9 +79,15 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Connect to the admin socket
-	conn, err := net.Dial(admin.Scheme, admin.Host)
+	var a string
+	if admin.Scheme == "unix" {
+		a = admin.Path
+	} else {
+		a = admin.Host
+	}
+	conn, err := net.Dial(admin.Scheme, a)
 	if err != nil {
-		log.Fatalln(err)
+		log.Println(err)
 		return
 	}
 	defer conn.Close()
