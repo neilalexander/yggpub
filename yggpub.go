@@ -28,7 +28,7 @@ func main() {
 
 	// Configure the command line parameters.
 	nodename = flag.String("nodename", hostname, "specify the friendly name of the node")
-	adminaddr = flag.String("adminaddr", "unix:///var/run/yggdrasil.sock", "path to the admin socket")
+	adminaddr = flag.String("adminaddr", "unix:///var/run/yggdrasil/yggdrasil.sock", "path to the admin socket")
 	listenaddr = flag.String("listenaddr", "[::]:80", "address and port to listen on")
 	flag.Parse()
 
